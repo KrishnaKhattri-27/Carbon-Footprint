@@ -1,38 +1,114 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* font-family: 'Nunito Sans', sans-serif;
+font-family: 'Poppins', sans-serif; */
+a{
+    text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+button{
+    outline: none;
+    text-decoration: none;
+    border: none;
+}
+
+.button{
+    background-color: #16142e;
+    color: white;
+    font-size: 14px;
+    padding: 13px 33px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.button:hover{
+  background-color: white;
+  color: #16142e !important;
+  border-color: #16142e !important;
+  border: solid 1px !important;
+}
+
+/* navbar */
+.navbar-wrapper{
+  background-color: #16142e;
+}
+
+/* navbar */
+
+/*footer*/
+.footer-wrapper{
+  background-color: #16142e;
+}
+/*footer*/
+
+
+/*login*/
+.login{
+  width: 500px;
+}
+.login-wrapper{
+  background-color: #f5f5f7;
+}
+.button{
+  background-color: #16142e;
+}
+
+.login-title{
+  color: #16142e !important;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: 36px !important;
+  border-bottom: 1px solid grey;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .login-box{
+      box-shadow: 0px 0px 50px 0px #aaa;
   }
-  to {
-    transform: rotate(360deg);
+  .google-signin i{
+  margin-top: 11px;
   }
+  
+  .line {
+      background-color: #d4d4d4;
+      height: 1px;
+      margin: 36px 0;
+      position: relative;
+      width: 100%;
+  }
+  
+  .line:before {
+      background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity));
+      color: #8b8b8b;
+      content: "Or";
+      left: 50%;
+      padding: 0 15px;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(-50%,-50%);
+      transform: translate(-50%,-50%)
+  }
+  .logout{
+      cursor: pointer;
+  }
+/*login*/
+
+/*home*/
+.home-wrapper{
+  background-image: url(https://media.giphy.com/media/QTc4NvhYNlyT7Q32uj/giphy.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* height: 100vh; */
 }
+.content-top h1{
+  font-size: 72px;
+  font-weight: bold;
+}
+.para-content{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+}
+/*home*/
