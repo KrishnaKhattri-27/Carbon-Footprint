@@ -112,3 +112,24 @@ button{
   line-height: 30px;
 }
 /*home*/
+
+/*Question*/
+.question p{
+  font-size: 20px;
+  font-weight: 700;
+}
+.option label{
+  font-weight: 500;
+  font-size: 18px;
+}
+.progress{
+  height: 7px !important;
+}
+.question-icon{
+  display: flex;
+  justify-content: center;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+}
+/*Question*/
