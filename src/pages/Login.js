@@ -61,6 +61,11 @@ function Login() {
             <div className="text-center mt-1">
                 <span>Don't have an account?<Link to="/signup"> Sign-Up</Link></span>
             </div>
+            <div className="line"></div>
+            <div className="google-signin py-2 px-3 button d-flex mt-3">
+                <i class="fa-brands fa-google fa-lg"></i>
+                <span className="d-block w-100 text-center">Login with Google</span>
+            </div>
               </>
           </div>
         </div>
