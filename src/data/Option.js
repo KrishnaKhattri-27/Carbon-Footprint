@@ -6,7 +6,7 @@ const optionValue = {
       "More than 15 hours": 7,
     },
     food2: {
-      train: 6,
+      "train": 6,
       "2-8 hours": 9,
       "More than 15 hours": 1,
     },

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import questions from "../data/QuestionSet";
 import optionValue from "../data/Option";
 
@@ -7,8 +7,8 @@ function Questionnaire() {
   const [index1, setIndex1] = useState(0);
   const [optionselected, setOptionSelected] = useState("");
   const [questID, setQuestID] = useState("");
-  let total = 0;
-
+  const [progresswidth, setProgressWidth] = useState(0);
+  const total = useRef(0);
 
   const type = [
     {
@@ -34,21 +34,43 @@ function Questionnaire() {
     else if (index === 8) setIndex1(1);
     else if (index === 12) setIndex1(2);
     else if (index === 16) setIndex1(3);
+    if (optionselected !== "" && questID !== "")
+      total.current -= optionValue[questID][optionselected];
+    setOptionSelected("");
+    setQuestID("");
     setIndex(index - 1);
   };
 
   const nextquestionhandler = () => {
-    total += optionValue[questID][optionselected];
     if (index === 3) setIndex1(1);
     else if (index === 7) setIndex1(2);
     else if (index === 11) setIndex1(3);
+    setOptionSelected("");
+    setQuestID("");
     setIndex(index + 1);
   };
 
   const selectorhandler = (e, i) => {
+    if (index === 3) setIndex1(1);
+    else if (index === 7) setIndex1(2);
+    else if (index === 11) setIndex1(3);
     setOptionSelected(e);
     setQuestID(questions[i].qID);
+    setIndex(index + 1);
   };
+
+  useEffect(() => {
+    if (optionselected !== "")
+      total.current += optionValue[questID][optionselected];
+    console.log(total.current);
+  }, [questID, optionselected]);
+
+  useEffect(() => {
+    if (index % 4 === 0) setProgressWidth(0);
+    else if (index % 4 === 1) setProgressWidth(25);
+    else if (index % 4 === 2) setProgressWidth(50);
+    else if (index % 4 === 3) setProgressWidth(75);
+  }, [index]);
 
   return (
     <div>
@@ -77,7 +99,7 @@ function Questionnaire() {
               >
                 <div
                   className={`progress-bar ${type[index1].color}`}
-                  style={{ width: "50%" }}
+                  style={{ width: progresswidth + "%" }}
                 ></div>
               </div>
             </div>
@@ -87,18 +109,11 @@ function Questionnaire() {
               </div>
               <div className="option">
                 {questions[index].options.map((e) => (
-                  <div class="form-check mb-1">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      value=""
-                      id={index}
-                      name="question"
-                      onClick={() => selectorhandler(e, index)}
-                    />
-                    <label className="form-check-label" for="1">
-                      {e}
-                    </label>
+                  <div
+                    className="border bg-dark text-light p-3 mb-2 text-center options"
+                    onClick={() => selectorhandler(e, index)}
+                  >
+                    <span>{e}</span>
                   </div>
                 ))}
               </div>
