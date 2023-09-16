@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import questions from "../data/QuestionSet";
 import optionValue from "../data/Option";
+import { useNavigate } from "react-router-dom";
 
 function Questionnaire() {
   const [index, setIndex] = useState(0);
@@ -8,6 +9,7 @@ function Questionnaire() {
   const [optionselected, setOptionSelected] = useState("");
   const [questID, setQuestID] = useState("");
   const [progresswidth, setProgressWidth] = useState(0);
+  const navigate = useNavigate();
   const total = useRef(0);
 
   const type = [
@@ -30,6 +32,10 @@ function Questionnaire() {
   ];
 
   const backquestionhandler = () => {
+    setIndex(index - 1);
+    if(index<=4) setTravel(false);
+    else if(index>4 && index<=8) setHome(false);
+    else if(index>8 && index<=12) setOther(false);
     if (index === 4) setIndex1(0);
     else if (index === 8) setIndex1(1);
     else if (index === 12) setIndex1(2);
@@ -38,25 +44,37 @@ function Questionnaire() {
       total.current -= optionValue[questID][optionselected];
     setOptionSelected("");
     setQuestID("");
-    setIndex(index - 1);
   };
 
   const nextquestionhandler = () => {
     if (index === 3) setIndex1(1);
     else if (index === 7) setIndex1(2);
     else if (index === 11) setIndex1(3);
+    if(index<4) setFood(true);
+    else if(index>=4 && index<8) setTravel(true);
+    else if(index>=8 && index<12) setHome(true);
+    else if(index>=12 && index<16) setOther(true);
     setOptionSelected("");
     setQuestID("");
     setIndex(index + 1);
   };
 
   const selectorhandler = (e, i) => {
-    if (index === 3) setIndex1(1);
+    if (i === 15) submithandler();
+    else if (index === 3) setIndex1(1);
     else if (index === 7) setIndex1(2);
     else if (index === 11) setIndex1(3);
+    if(index<4) setFood(true);
+    else if(index>=4 && index<8) setTravel(true);
+    else if(index>=8 && index<12) setHome(true);
+    else if(index>=12 && index<16) setOther(true);
     setOptionSelected(e);
     setQuestID(questions[i].qID);
     setIndex(index + 1);
+  };
+
+  const submithandler = () => {
+    navigate("/result");
   };
 
   useEffect(() => {
@@ -65,18 +83,27 @@ function Questionnaire() {
     console.log(total.current);
   }, [questID, optionselected]);
 
+  const [food,setFood]=useState(false)
+  const [travel,setTravel]=useState(false)
+  const [home,setHome]=useState(false)
+  const [other,setOther]=useState(false)
+
   useEffect(() => {
-    if (index % 4 === 0) setProgressWidth(0);
-    else if (index % 4 === 1) setProgressWidth(25);
-    else if (index % 4 === 2) setProgressWidth(50);
-    else if (index % 4 === 3) setProgressWidth(75);
+    if (index % 4 === 0) setProgressWidth(25);
+    else if (index % 4 === 1) setProgressWidth(50);
+    else if (index % 4 === 2) setProgressWidth(75);
+    else if (index % 4 === 3) setProgressWidth(100);
+    // if(index<4) setFood(true);
+    // else if(index>=4 && index<8) setTravel(true);
+    // else if(index>=8 && index<12) setHome(true);
+    // else if(index>=12 && index<16) setOther(true);
   }, [index]);
 
   return (
     <div>
       <div className="container-xxl">
         <div className="row">
-          <div className="col-12 my-5 px-5">
+          <div className="col-12 my-5 px-1 px-sm-5">
             <div className="progress-top ">
               <div className="d-flex  justify-content-start align-item-center">
                 <div className={`question-icon ${type[index1].color} p-3 mb-2`}>
@@ -103,7 +130,7 @@ function Questionnaire() {
                 ></div>
               </div>
             </div>
-            <div className="question-box mx-5 px-5 mt-4">
+            <div className="question-box mx-sm-5 mx-0 px-sm-5 px-0 mt-4">
               <div className="question mb-2">
                 <p>{questions[index].quest}</p>
               </div>
@@ -125,19 +152,25 @@ function Questionnaire() {
                 }  mt-3`}
               >
                 {index === 0 ? null : (
-                  <button className="button" onClick={backquestionhandler}>
+                  <button className="back" onClick={backquestionhandler}>
                     Back
                   </button>
                 )}
-                <button className="button" onClick={nextquestionhandler}>
-                  Next Question
-                </button>
+                {index === 15 ? (
+                  <button className="button" onClick={submithandler}>
+                    Submit
+                  </button>
+                ) : (
+                  <button className="button" onClick={nextquestionhandler}>
+                    Next Question
+                  </button>
+                )}
               </div>
             </div>
           </div>
-          <div className="col-12 px-5 mt-3 mb-5">
+          <div className="col-12 px-0 px-sm-5 mt-3 mb-5">
             <div className="row">
-              <div className="col-3 px-4">
+              <div className="col-6 col-sm-3 px-4 mb-4 mb-sm-0">
                 <div className="d-flex justify-content-center">
                   <div className="question-icon bg-warning p-3 mb-2">
                     <img
@@ -157,11 +190,14 @@ function Questionnaire() {
                 >
                   <div
                     className="progress-bar bg-warning"
-                    style={{ width: "75%" }}
+                    // style={{ width: food?progresswidth+"%":"0%" }}
+                    // style={{ width: index<4?progresswidth+"%":"0%" }}
+                    style={{ width: index<4?progresswidth+"%":food?"100%":"0%" }}
+
                   ></div>
                 </div>
               </div>
-              <div className="col-3 px-4">
+              <div className="col-6 col-sm-3 px-4 mb-4 mb-sm-0">
                 <div className="d-flex justify-content-center">
                   <div className="question-icon bg-primary p-3 mb-2">
                     <img
@@ -181,11 +217,12 @@ function Questionnaire() {
                 >
                   <div
                     className="progress-bar bg-primary"
-                    style={{ width: "75%" }}
+                    // style={{ width: travel?progresswidth+"%":"0%" }}
+                    style={{ width: index>=4&&index<8?progresswidth+"%":travel?"100%":"0%" }}
                   ></div>
                 </div>
               </div>
-              <div className="col-3 px-4">
+              <div className="col-6 col-sm-3 px-4 ">
                 <div className="d-flex justify-content-center">
                   <div className="question-icon bg-info p-3 mb-2">
                     <img
@@ -205,11 +242,12 @@ function Questionnaire() {
                 >
                   <div
                     className="progress-bar bg-info"
-                    style={{ width: "75%" }}
+                    // style={{ width: home?progresswidth+"%":"0%" }}
+                    style={{ width: index>=8&&index<12?progresswidth+"%":home?"100%":"0%" }}
                   ></div>
                 </div>
               </div>
-              <div className="col-3 px-4">
+              <div className="col-6 col-sm-3 px-4">
                 <div className="d-flex justify-content-center">
                   <div className="question-icon bg-danger p-3 mb-2">
                     <img
@@ -229,7 +267,8 @@ function Questionnaire() {
                 >
                   <div
                     className="progress-bar bg-danger"
-                    style={{ width: "75%" }}
+                    // style={{ width: other?progresswidth+"%":"0%" }}
+                    style={{ width: index>=12&&index<16?progresswidth+"%":other?"100%":"0%" }}
                   ></div>
                 </div>
               </div>

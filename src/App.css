@@ -36,7 +36,9 @@ button{
 .navbar-wrapper{
   background-color: #16142e;
 }
-
+.account:hover{
+  text-decoration: underline;
+}
 /* navbar */
 
 /*footer*/
@@ -97,7 +99,7 @@ button{
 
 /*home*/
 .home-wrapper{
-  background-image: url(https://media.giphy.com/media/QTc4NvhYNlyT7Q32uj/giphy.gif);
+  background-image: url(https://media.giphy.com/media/uf3jumi0zzUv6/giphy.gif);
   background-repeat: no-repeat;
   background-size: cover;
   /* height: 100vh; */
@@ -110,6 +112,9 @@ button{
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
+}
+.content{
+  padding: 100px 0;
 }
 /*home*/
 
@@ -138,4 +143,32 @@ button{
   width: 40px;
   height: 40px;
 }
+.back{
+  background-color: white !important;
+  color: #16142e !important;
+  border: solid  1px;
+  border-color: #16142e;
+  font-size: 14px;
+  padding: 13px 33px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.back:hover{
+  background-color: #16142e !important;
+  color: white !important;
+}
 /*Question*/
+
+
+@media (max-width:576px){
+  .content-top h1{
+    font-size: 40px;
+  }
+  .para-content{
+    font-size: 16px;
+  }
+  .content{
+    width: 90% !important;
+  }
+}

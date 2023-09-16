@@ -12,12 +12,12 @@ function Footer() {
           </div>
           <div className="footer-bottom text-light mt-4">
             <div className="row mb-4">
-              <div className="col-8 d-flex">
+              <div className="col-md-8 col-12  d-sm-flex">
                 <h5 className="me-4">Contact Us</h5>
                 <h5 className="me-4">Terms & Conditions</h5>
                 <h5 className="me-4">FAQ</h5>
               </div>
-              <div className="col-4 text-end">
+              <div className="col-12 mt-3 mt-md-0 col-md-4 text-md-end">
                 <i className="fa-brands fa-linkedin fa-xl me-4"></i>
                 <i className="fa-brands fa-twitter fa-xl me-4"></i>
                 <i className="fa-brands fa-instagram fa-xl"></i>
@@ -36,7 +36,6 @@ function Footer() {
             </div>
             <div className="text-center pb-2">
                 <h6>Photos and graphics © or used with permission.</h6>
-
             </div>
           </div>
           
