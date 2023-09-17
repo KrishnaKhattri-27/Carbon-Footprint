@@ -69,8 +69,7 @@ function Result() {
         <div className="top">
           <h2>CONGRATULATIONS!</h2>
           <p>
-            Your annual footprint is close to the UK average but there's still
-            room to improve your score!
+            Your annual footprint is close to the world average. Try looking through our suggestions to improve your score.
           </p>
         </div>
 
@@ -93,7 +92,7 @@ function Result() {
         </div>
       </Container2>
       <Container3>
-        <div className="box bg-warning d-flex">
+        <div className="box d-flex a">
           <div className="d-flex flex-column my-4 mx-4">
             <div>
               <img
@@ -102,7 +101,7 @@ function Result() {
               ></img>
             </div>
             <h5 className="mb-0 mt-2 text-center text-light fw-bold">
-              {foodp + "%"}
+              {Math.round(foodp) + "%"}
             </h5>
           </div>
           <div className="right ms-4 mt-4">
@@ -112,7 +111,7 @@ function Result() {
             </button>
           </div>
         </div>
-        <div className="box bg-primary d-flex">
+        <div className="box b d-flex">
           <div className="d-flex flex-column my-4 mx-4">
             <div>
               <img
@@ -121,7 +120,7 @@ function Result() {
               ></img>
             </div>
             <h5 className="mb-0 mt-2 text-center text-light fw-bold">
-              {travelp + "%"}
+              {Math.round(travelp) + "%"}
             </h5>
           </div>
           <div className="right ms-4 mt-4">
@@ -131,7 +130,7 @@ function Result() {
             </button>
           </div>
         </div>
-        <div className="box bg-info d-flex">
+        <div className="box c d-flex">
           <div className="d-flex flex-column my-4 mx-4">
             <div>
               <img
@@ -140,7 +139,7 @@ function Result() {
               ></img>
             </div>
             <h5 className="mb-0 mt-2 text-center text-light fw-bold">
-              {homep + "%"}
+              {Math.round(homep) + "%"}
             </h5>
           </div>
           <div className="right ms-4 mt-4">
@@ -150,7 +149,7 @@ function Result() {
             </button>
           </div>
         </div>
-        <div className="box bg-danger d-flex">
+        <div className="box d d-flex">
           <div className="d-flex flex-column my-4 mx-4">
             <div>
               <img
@@ -159,7 +158,7 @@ function Result() {
               ></img>
             </div>
             <h5 className="mb-0 mt-2 text-center text-light fw-bold">
-              {otherp + "%"}
+              {Math.round(otherp) + "%"}
             </h5>
           </div>
           <div className="right ms-4 mt-4">
@@ -197,27 +196,31 @@ export default Result;
 
 const Container1 = styled.div`
   height: 650px;
-  width: 33%;
-  background-color: #ffbf1e;
-
+  width: 420px;
+  background-color: #FFBF1E;
   border-radius: 10px;
-  ${"" /* margin-left: 120px; */}
   margin-top: 60px;
   margin-bottom: 20px;
   z-index: -2;
+  display: flex;
+  flex-direction: column; 
 
   h2 {
     font-size: 30px;
-    position: relative;
-    padding-top: 30px;
-    padding-left: 20px;
     font-weight: bold;
-    z-index: 2;
+    padding: 20px; 
+    text-align: center;
   }
+
   p {
-    padding-left: 20px;
-    padding-right: 20px;
+    position: relative;
     line-height: 21px;
+    text-align: center; 
+  }
+
+  @media screen and (max-width: 768px) {
+   
+   width:100%;
   }
   .footprint {
     font-size: 20px;
@@ -259,7 +262,7 @@ const Container1 = styled.div`
 
 const Container2 = styled.div`
   height: 650px;
-  width: 33%;
+  width: 420px;
   background-color: black;
   border-radius: 10px;
   ${"" /* margin-left: 120px; */}
@@ -310,11 +313,15 @@ const Container2 = styled.div`
     margin-bottom: auto;
     margin-top: 0;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Container3 = styled.div`
   height: 650px;
-  width: 33%;
+  width: 420px;
   background-color: black;
   border-radius: 10px;
   margin-top: 60px;
@@ -324,6 +331,10 @@ const Container3 = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 
   .box {
     flex: 1;
@@ -337,10 +348,36 @@ const Container3 = styled.div`
       }
     }
   }
+
+  .a{
+    background-color: #0094d5;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .b{
+    background-color: #00b9ad;
+  }
+
+  .c{
+    background-color: #f89834;
+  }
+
+  .d{
+    background-color: #d04092;
+    border-radius: 0px 0px 10px 10px;
+  }
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column; /* Change to a column layout */
+    align-items: center; /* Center items horizontally when in column layout */
+  }
+
+  
 `;
+
