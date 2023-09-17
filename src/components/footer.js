@@ -27,7 +27,7 @@ function Footer() {
           <div className="">
             <div className="d-flex mb-2 justify-content-center">
             <div className="border-end border-light my-2">
-              <img className="" src={Carbon} width="55px" height="65px" alt="" />
+              <img className="" src={Carbon} width="40px" height="65px" alt="" />
             </div>
             <div className="ms-3 mt-2">
               <h4 className="mb-0 text-light">Footprint</h4>
