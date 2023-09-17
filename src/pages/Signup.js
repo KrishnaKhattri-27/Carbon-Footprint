@@ -1,7 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
-function Signup() {
+function Signup({signuphandler,signuped}) {
+  const navigate = useNavigate();
+  if (signuped === true) {
+    navigate("/login");
+  }
   return (
     <div>
     <div className="login-wrapper">
@@ -9,7 +14,7 @@ function Signup() {
         <div className="row justify-content-center">
           <div className="col-lg-4 col-sm-7 col-12 bg-light my-5 py-3 px-4 login-box rounded-3">
 
-            <form>
+            <form onSubmit={(e) => signuphandler(e)}>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">
                   Email address

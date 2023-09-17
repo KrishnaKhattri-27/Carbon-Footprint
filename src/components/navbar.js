@@ -3,7 +3,7 @@ import Carbon from "../image/carbon.png";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import "../App.css";
-function Navbar() {
+function Navbar({status,name}) {
   return (
     <div className="navbar-wrapper">
       <div className="container-xxl px-1 px-sm-4">
@@ -24,14 +24,18 @@ function Navbar() {
             </Link>
           </div>
           <div className="col-6 px-0 ">
-            <div className="d-flex justify-content-end my-4">
+           {status?
+           <div className="d-flex justify-content-end my-4">
+              <h5 className="text-light">Hello {name}</h5>
+           </div>
+           :( <div className="d-flex justify-content-end my-4">
               <Link to="/login">
                 <h5 className="text-light fw-normal me-3 account">Login</h5>
               </Link>
               <Link to="/signup">
                 <h5 className="text-light fw-normal me-3 account">Sign up</h5>
               </Link>
-            </div>
+            </div>)}
           </div>
         </div>
       </div>

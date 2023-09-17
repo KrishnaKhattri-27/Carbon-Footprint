@@ -1,16 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Carbon from "../image/carbon.svg"
+import { useNavigate } from "react-router-dom";
 
 
-function Login() {
+function Login({googlesigninhandler,signedin,signinhandler}) {
+  const navigate=useNavigate();
+  if(signedin){
+    navigate('/')
+  }
+
   return (
     <div className="login-wrapper">
       <div className="container-xxl">
         <div className="row justify-content-center">
           <div className="col-lg-4 col-sm-7 col-12 bg-light my-5 py-3 px-4 login-box rounded-3">
               <>
-            <form>
+            <form onSubmit={(e)=>signinhandler(e)}>
             <div class="mb-1">
                   <label for="exampleInputPassword1" class="form-label">
                     Display Name
@@ -62,7 +68,7 @@ function Login() {
                 <span>Don't have an account?<Link to="/signup"> Sign-Up</Link></span>
             </div>
             <div className="line"></div>
-            <div className="google-signin py-2 px-3 button d-flex mt-3">
+            <div onClick={()=>googlesigninhandler()}  className="google-signin py-2 px-3 button d-flex mt-3">
                 <i class="fa-brands fa-google fa-lg"></i>
                 <span className="d-block w-100 text-center">Login with Google</span>
             </div>

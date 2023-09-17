@@ -6,6 +6,10 @@ import TRAVEL from "../data/TRAVEL";
 import HOME from "../data/HOME";
 import OTHER from "../data/OTHER";
 import "../App.css";
+import foodimg from "../image/foodimg.jpg"
+import travelimg from "../image/travelimg.jpg"
+import otherimg from "../image/otherimg.jpg"
+import homeimg from "../image/homeimg.jpg"
 
 function Result() {
   const [display, setDisplay] = useState("none");
@@ -34,31 +38,25 @@ function Result() {
       else if (foodp >= 25 && foodp < 50) setMatter(FOOD.b);
       else if (foodp >= 50 && foodp < 75) setMatter(FOOD.c);
       else if (foodp >= 75 && foodp < 100) setMatter(FOOD.d);
-      setImage(
-        "https://i.pinimg.com/564x/55/3e/d4/553ed485c523f4736bb754a366f1e6ff.jpg"
-      );
+      setImage(foodimg);
     } else if (e === "travel") {
       if (travelp < 25) setMatter(TRAVEL.a);
       else if (travelp >= 25 && travelp < 50) setMatter(TRAVEL.b);
       else if (travelp >= 50 && travelp < 75) setMatter(TRAVEL.c);
       else if (travelp >= 75 && travelp < 100) setMatter(TRAVEL.d);
-      setImage(
-        "https://i.pinimg.com/564x/e6/7a/83/e67a83822560722e43cb12222ab80e4b.jpg"
-      );
+      setImage(travelimg);
     } else if (e === "home") {
       if (homep < 25) setMatter(HOME.a);
       else if (homep >= 25 && homep < 50) setMatter(HOME.b);
       else if (homep >= 50 && homep < 75) setMatter(HOME.c);
       else if (homep >= 75 && homep < 100) setMatter(HOME.d);
-      setImage("https://footprint.wwf.org.uk/img/technology.8bb44bd2.jpg");
+      setImage(homeimg);
     } else if (e === "other") {
       if (otherp < 25) setMatter(OTHER.a);
       else if (otherp >= 25 && otherp < 50) setMatter(OTHER.b);
       else if (otherp >= 50 && otherp < 75) setMatter(OTHER.c);
       else if (otherp >= 75 && otherp < 100) setMatter(OTHER.d);
-      setImage(
-        "https://i.pinimg.com/474x/df/3a/20/df3a200a4e698dc920e777aed5f48221.jpg"
-      );
+      setImage(otherimg);
     }
     setDisplay("block");
   };
@@ -173,8 +171,8 @@ function Result() {
         <div className="close-button text-light fw-bolder fs-4" onClick={closePopup}>
           X 
         </div>
-        <div className="d-flex ">
-          <div className="w-50 ">
+        <div className="d-sm-flex ">
+          <div className="w-50 toppopup">
             <img
               className=""
               width="100%"
@@ -183,8 +181,8 @@ function Result() {
               alt="no-image"
             />
           </div>
-          <div className="w-50 text-light mt-4 px-3 ">
-            <p className="fs-4">{matter}</p>
+          <div className="w-50 text-light mt-4 px-3 belowpopup">
+            <p className="fs-4 matterpopup">{matter}</p>
           </div>
         </div>
       </div>
