@@ -1,7 +1,7 @@
 const questions = [
   {
     quest: "Do you eat meat?",
-    options: ["YES", "NO"],
+    options: ["Yes", "No", "I am vegan"],
     qID: "food1",
   },
   {
@@ -16,7 +16,7 @@ const questions = [
   },
   {
     quest: "Do you buy most of your food locally grown?",
-    options: ["YES", "NO"],
+    options: ["Yes", "No"],
     qID: "food3",
   },
   {
@@ -25,22 +25,22 @@ const questions = [
     qID: "food4",
   },
   {
-    quest: "Do you drive a car?",
-    options: ["YES", "NO"],
+    quest: "Do you drive a car, bike or truck?",
+    options: ["Yes", "No"],
     qID: "travel1",
   },
   {
     quest: "If yes, how many miles do you drive per week?",
-    options: ["Less than 500", "500-1000", "1000-2000", "More than 2000"],
+    options: ["Less than 500", "500-1000", "More than 1000", "None"],
     qID: "travel2",
   },
   {
     quest: "Do you use public transportation?",
-    options: ["YES", "NO"],
+    options: ["Yes", "No"],
     qID: "travel3",
   },
   {
-    quest: "How many flights do you take per year?",
+    quest: "How many flights did you take in the past year?",
     options: ["None", "1-2", "3-4", "5-6", "More than 6"],
     qID: "travel4",
   },
@@ -89,12 +89,12 @@ const questions = [
   },
   {
     quest: "Do you have solar panels?",
-    options: ["YES", "NO"],
+    options: ["Yes", "No"],
     qID: "other3",
   },
   {
     quest: "Do you recycle all recyclable materials?",
-    options: ["YES", "NO"],
+    options: ["Yes", "No"],
     qID: "other4",
   },
 ];

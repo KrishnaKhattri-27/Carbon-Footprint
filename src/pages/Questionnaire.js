@@ -88,7 +88,15 @@ function Questionnaire() {
   };
 
   const submithandler = () => {
-    navigate("/result");
+    navigate("/result",{
+        state:{
+            total:total.current,
+            totalfood:total_food.current,
+            totaltravel:total_travel.current,
+            totalhome:total_home.current,
+            totalother:total_other.current
+        }
+    });
   };
 
   useEffect(() => {
@@ -105,6 +113,7 @@ function Questionnaire() {
     }
    
     console.log(total.current);
+    // console.log(optionValue[questID]);
     console.log("food",total_food.current);
     console.log("travel",total_travel.current);
     console.log("home",total_home.current);
