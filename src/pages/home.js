@@ -1,7 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
-function home() {
+
+function Home({ signedin }) {
+  const navigate = useNavigate();
+  const questionhandler = () => {
+    if (signedin === true) navigate("/questionnaire");
+    else {
+      alert("Login to continue");
+      navigate("/login");
+    }
+  };
   return (
     <div>
       <div className="home-wrapper">
@@ -21,9 +30,9 @@ function home() {
             </p>
           </div>
           <div>
-            <Link to="/questionnaire">
+            <div onClick={questionhandler}>
               <button className="button">TAKE QUESTIONNAIRE</button>
-            </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -31,4 +40,4 @@ function home() {
   );
 }
 
-export default home;
+export default Home;

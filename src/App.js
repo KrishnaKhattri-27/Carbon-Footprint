@@ -98,7 +98,7 @@ function App() {
       <BrowserRouter>
         <Navbar status={signedin} name={username} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home signedin={signedin} />} />
           <Route
             path="/login"
             element={

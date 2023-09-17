@@ -207,7 +207,7 @@ function Questionnaire() {
                 <div className="d-flex justify-content-center">
                   <div className="question-icon bg-warning p-3 mb-2">
                     <img
-                      src="https://footprint.wwf.org.uk/icons/food.svg"
+                      src="https://footprint.wwf.org.uk/img/food.fe2c757b.svg"
                       alt=""
                     />
                   </div>
