@@ -11,6 +11,11 @@ function Questionnaire() {
   const [progresswidth, setProgressWidth] = useState(0);
   const navigate = useNavigate();
   const total = useRef(0);
+  const total_food = useRef(0);
+  const total_travel = useRef(0);
+  const total_home = useRef(0);
+  const total_other = useRef(0);
+
 
   const type = [
     {
@@ -40,8 +45,17 @@ function Questionnaire() {
     else if (index === 8) setIndex1(1);
     else if (index === 12) setIndex1(2);
     else if (index === 16) setIndex1(3);
-    if (optionselected !== "" && questID !== "")
+    if (optionselected !== "" && questID !== ""){
       total.current -= optionValue[questID][optionselected];
+      if(index < 4)
+      total_food.current -= optionValue[questID][optionselected]; 
+      else if(index>=4 && index<8)
+      total_travel.current -= optionValue[questID][optionselected];
+      else if(index>=8 && index<12)
+      total_home.current -= optionValue[questID][optionselected];
+      else if(index>=12 && index<16)
+      total_other.current -= optionValue[questID][optionselected];  
+    }
     setOptionSelected("");
     setQuestID("");
   };
@@ -78,9 +92,23 @@ function Questionnaire() {
   };
 
   useEffect(() => {
-    if (optionselected !== "")
+    if (optionselected !== ""){
       total.current += optionValue[questID][optionselected];
+      if(index < 4)
+      total_food.current += optionValue[questID][optionselected]; 
+      else if(index>=4 && index<8)
+      total_travel.current += optionValue[questID][optionselected];
+      else if(index>=8 && index<12)
+      total_home.current += optionValue[questID][optionselected];
+      else if(index>=12 && index<16)
+      total_other.current += optionValue[questID][optionselected];
+    }
+   
     console.log(total.current);
+    console.log("food",total_food.current);
+    console.log("travel",total_travel.current);
+    console.log("home",total_home.current);
+    console.log("other",total_other.current);
   }, [questID, optionselected]);
 
   const [food,setFood]=useState(false)
@@ -93,10 +121,6 @@ function Questionnaire() {
     else if (index % 4 === 1) setProgressWidth(50);
     else if (index % 4 === 2) setProgressWidth(75);
     else if (index % 4 === 3) setProgressWidth(100);
-    // if(index<4) setFood(true);
-    // else if(index>=4 && index<8) setTravel(true);
-    // else if(index>=8 && index<12) setHome(true);
-    // else if(index>=12 && index<16) setOther(true);
   }, [index]);
 
   return (

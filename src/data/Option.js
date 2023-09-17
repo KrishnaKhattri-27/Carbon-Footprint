@@ -1,49 +1,34 @@
 const optionValue = {
   food1: {
-    "Under 2 hours": 3,
-    "2-8 hours": 4,
-    "8-15 hours": 5,
-    "More than 15 hours": 7,
+    "YES": 3,
+    "NO": 4,
   },
   food2: {
-    train: 6,
-    "2-8 hours": 9,
-    "More than 15 hours": 1,
+    "Less than once a week":2,
+      "Once a week":4,
+      "Twice a week":6,
+      "Three times a week or more":8,
   },
   food3: {
-    "Under 2 hours": 1,
-    "2-8 hours": 3,
-    "8-15 hours": 5,
+    "YES": 1,
+    "NO": 3,
   },
   food4: {
-    "Under 2 hours": 7,
-    "2-8 hours": 8,
-    "8-15 hours": 9,
-    "More than 15 hours": 1,
+    "Less than 5%":5, "5-10%":5, "10-20%":3, "20-30%":2, "More than 30%":1
   },
   travel1: {
-    "Under 2 hours": 7,
-    "2-8 hours": 8,
-    "8-15 hours": 9,
-    "More than 15 hours": 1,
+    "YES": 7,
+    "NO": 8,
   },
   travel2: {
-    "Under 2 hours": 7,
-    "2-8 hours": 8,
-    "8-15 hours": 9,
-    "More than 15 hours": 1,
+    "Less than 500":4, "500-1000":3, "1000-2000":2, "More than 2000":1
   },
   travel3: {
-    "Under 2 hours": 7,
-    "2-8 hours": 8,
-    "8-15 hours": 9,
-    "More than 15 hours": 1,
+    "YES": 7,
+    "NO": 8,
   },
   travel4: {
-    "Under 2 hours": 7,
-    "2-8 hours": 8,
-    "8-15 hours": 9,
-    "More than 15 hours": 1,
+    "None":1, "1-2":3, "3-4":4, "5-6":7, "More than 6":4
   },
   home1: {
     "Under 2 hours": 7,
