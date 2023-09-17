@@ -13,7 +13,7 @@ function Navbar() {
               <img
                 src={Carbon}
                 className=""
-                width="55px"
+                width="40px"
                 height="65px"
                 alt=""
               />
