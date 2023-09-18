@@ -4,7 +4,7 @@ import Carbon from "../image/carbon.png"
 function Footer() {
   return (
     <div>
-      <div className="container-xxl px-0">
+      <div className="container-fluid px-0">
         <div className="footer-color"></div>
         <div className="footer-wrapper px-4">
           <div className="footer-top text-light border-bottom border-light pt-5 pb-2">

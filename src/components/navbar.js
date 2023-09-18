@@ -6,7 +6,7 @@ import "../App.css";
 function Navbar({status,name}) {
   return (
     <div className="navbar-wrapper">
-      <div className="container-xxl px-1 px-sm-4">
+      <div className="container-fluid px-1 px-sm-4">
         <div className="row justify-content-between ">
           <div className="col-6 d-flex">
             <div className="border-end border-light my-2">
