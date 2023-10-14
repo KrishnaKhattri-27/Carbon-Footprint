@@ -1,5 +1,8 @@
 # Carbon Footprint Calculator
 
+#User Email - deh.harsh@gmail.com
+#User Password - 123456
+
 ## Overview
 
 The Carbon Footprint Calculator is a web application designed to help users measure their environmental impact by calculating their carbon footprint. Built entirely in React, it incorporates best practices in design, authentication, and data accuracy.
