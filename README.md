@@ -1,7 +1,7 @@
 # Carbon Footprint Calculator
 
-#User Email - deh.harsh@gmail.com
-#User Password - 123456
+User Email - deh.harsh@gmail.com
+User Password - 123456
 
 ## Overview
 
